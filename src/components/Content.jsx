@@ -3,7 +3,7 @@ import {Routes, Route } from 'react-router-dom';
 
 import Home from "../views/Home"
 import Param from "../views/Param"
-import User from "../views/User"
+import User from "../pages/User"
 
 const Content = () => (
     <main>

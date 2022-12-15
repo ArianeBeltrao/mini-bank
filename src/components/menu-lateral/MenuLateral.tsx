@@ -1,15 +1,19 @@
+
 import * as React from 'react';
-import { Drawer, Avatar, useTheme, Divider, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+
+
+import { Drawer, Avatar, useTheme, Divider, List, ListItemIcon, ListItemButton, ListItemText } from '@mui/material';
 import { Box } from '@mui/system';
 import Person from '@mui/icons-material/Person';
 import HomeIcon from '@mui/icons-material/Home';
 import Money from '@mui/icons-material/MonetizationOn';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ListItem from '@mui/material/ListItem';
-import Link from 'next/link'
 
 
-export const MenuLateral: React.FC = ({ children }) => {  //FC functional component, pegando todos os componentes que sao filhos do componente
+
+
+export const MenuLateral: React.FC = ({ children }) => {  //FC functional component, pegando href={}dos os componentes que sao filhos do componente
 
     const theme = useTheme()
     
@@ -17,6 +21,9 @@ export const MenuLateral: React.FC = ({ children }) => {  //FC functional compon
         //<> fragmente - pra colocar o drayer do lado esquerdo da tela e o children no outro lado
         <> 
         <Box sx={{ display: 'flex'}}> 
+       
+
+        
             <Drawer open={true} variant={'permanent'}> 
                 <Box width={theme.spacing(30)} height="100%" display="flex" flexDirection="column">                        
                     <Box width="100%" height={theme.spacing(20)} display="flex" alignItems="center" justifyContent="center" >
@@ -26,18 +33,28 @@ export const MenuLateral: React.FC = ({ children }) => {  //FC functional compon
                     </Box>
                     <Divider/>
                     <List  >
-                        <ListItem disablePadding sx={{ display: 'block' }}>
-                            <nav>
-                                <ul>       
-                                    <li>
-                                        <Link href='./about'>About</Link>
-                                    </li>      
-                                </ul>
-                            </nav>   
+                        <ListItem disablePadding sx={{ display: 'block' }} >
+                            <ListItemButton component="a" href="../Company">
+                                <ListItemIcon> <HomeIcon/> </ListItemIcon>
+                                <ListItemText primary="Company" />
+                            </ListItemButton>
+                            <ListItemButton component="a" href="../User">
+                                <ListItemIcon> <Person/> </ListItemIcon>
+                                <ListItemText primary="User" />
+                            </ListItemButton>
+                            <ListItemButton component="a" href="../User">
+                                <ListItemIcon> <AccountBalanceIcon/> </ListItemIcon>
+                                <ListItemText primary="Bank Account" />
+                            </ListItemButton>
+                            <ListItemButton component="a" href="../User">
+                                <ListItemIcon> <Money/> </ListItemIcon>
+                                <ListItemText primary="Transaction" />
+                            </ListItemButton>
                         </ListItem>
                     </List>
                 </Box>  
             </Drawer>
+            
             <Box  marginLeft={theme.spacing(28)}> {/*1 = 4 px*/}
                 { children }
             </Box>

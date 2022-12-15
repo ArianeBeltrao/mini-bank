@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/layout/Menu.jsx", "src/components/layout/Menu.jsx", "src/views/Home.tsx", "src/components/Content.jsx", "src/components/Content.jsx", "src/pages/index.tsxx", src/pages/index.tsxsx" ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/layout/Menu.jsx", "src/components/layout/Menu.jsx", "src/views/Home.tsx", "src/components/Content.jsx", "src/components/Content.jsx", "src/pages/index.tsxx", "src/pages/index.tsxsx", "src/pages/User.jsx", "src/pages/User.jsx" ],
   "exclude": ["node_modules"]
 }
