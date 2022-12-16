@@ -81,6 +81,12 @@ a {
   padding: 16px;
 }
 
+.table-icon {
+  text-align: left;
+  padding: 5px;
+  color: #484848;
+}
+
 .table {
   width: 100%;
   border-radius: 8px;

@@ -1,15 +1,15 @@
-import Layout from '../components/Layout'
+import Transfer from "../components/Transfer"
 import { MenuLateral } from "../components/menu-lateral/MenuLateral"
 import React from 'react'
 
-export default function Home() {
+
+export default function Transaction() {
 
   return (
     <div className="background"> 
       <MenuLateral>
-        <Layout titulo='teste'>
-          sera que vai
-        </Layout>
+        <Transfer>
+        </Transfer>
       </MenuLateral>
  
     </div>

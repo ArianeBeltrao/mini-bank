@@ -1,7 +1,4 @@
-
 import * as React from 'react';
-
-
 import { Drawer, Avatar, useTheme, Divider, List, ListItemIcon, ListItemButton, ListItemText } from '@mui/material';
 import { Box } from '@mui/system';
 import Person from '@mui/icons-material/Person';
@@ -9,9 +6,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import Money from '@mui/icons-material/MonetizationOn';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ListItem from '@mui/material/ListItem';
-
-
-
 
 export const MenuLateral: React.FC = ({ children }) => {  //FC functional component, pegando href={}dos os componentes que sao filhos do componente
 
@@ -34,7 +28,7 @@ export const MenuLateral: React.FC = ({ children }) => {  //FC functional compon
                     <Divider/>
                     <List  >
                         <ListItem disablePadding sx={{ display: 'block' }} >
-                            <ListItemButton component="a" href="../Company">
+                            <ListItemButton component="a" href="../">
                                 <ListItemIcon> <HomeIcon/> </ListItemIcon>
                                 <ListItemText primary="Company" />
                             </ListItemButton>
@@ -42,11 +36,11 @@ export const MenuLateral: React.FC = ({ children }) => {  //FC functional compon
                                 <ListItemIcon> <Person/> </ListItemIcon>
                                 <ListItemText primary="User" />
                             </ListItemButton>
-                            <ListItemButton component="a" href="../User">
+                            <ListItemButton component="a" href="../BankAccount">
                                 <ListItemIcon> <AccountBalanceIcon/> </ListItemIcon>
                                 <ListItemText primary="Bank Account" />
                             </ListItemButton>
-                            <ListItemButton component="a" href="../User">
+                            <ListItemButton component="a" href="../Transaction">
                                 <ListItemIcon> <Money/> </ListItemIcon>
                                 <ListItemText primary="Transaction" />
                             </ListItemButton>

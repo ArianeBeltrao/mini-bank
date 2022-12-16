@@ -1,4 +1,4 @@
-export default class Cliente {
+export default class User {
     #id: string
     #nome: string 
     #email: string
@@ -9,8 +9,8 @@ export default class Cliente {
         this.#id = id
     }
 
-    static vazio() {//metodo estatico com cliente vazio pra nao ter que estanciar 
-        return new Cliente('', '', '')
+    static vazio() {//metodo estatico com User vazio pra nao ter que estanciar 
+        return new User('', '', '')
     }
 
     get id() {
