@@ -61,7 +61,7 @@ export default function Formulario(props:FormularioProps) {
             
             <div className="formulario-botao-linha">
                 <Botao 
-                    onClick={() => props.clienteMudou?.(new TransactionCore(nome, email, id))}>
+                    onClick={() => props.clienteMudou?.(new TransactionCore(id, userId, bankAccountId, type, value, date, numberAccount ))}>
                     {id ? 'Alterar' : 'Create transfer'}
                 </Botao>
                 

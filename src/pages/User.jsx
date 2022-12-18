@@ -5,10 +5,9 @@ import React from "react";
 
 const User = props => (
     <div>
-        <h1>sobre</h1>
         <MenuLateral>
-        <Layout titulo='teste'>
-          sera que vai
+        <Layout titulo='layout'>
+          layout
         </Layout>
       </MenuLateral>
     </div>

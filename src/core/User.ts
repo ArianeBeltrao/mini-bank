@@ -1,24 +1,24 @@
 export default class User {
-    #id: string
-    #nome: string 
+    #id: number
+    #name: string 
     #email: string
     
-    constructor(nome: string, email: string, id: string){ //=null
-        this.#nome = nome
+    constructor(id: number, name: string, email: string){ //=null
+        this.#name = name
         this.#email = email
         this.#id = id
     }
 
     static vazio() {//metodo estatico com User vazio pra nao ter que estanciar 
-        return new User('', '', '')
+        return new User(0, '', '')
     }
 
     get id() {
         return this.#id
     }
 
-    get nome() {
-        return this.#nome
+    get name() {
+        return this.#name
     }
 
     get email() {

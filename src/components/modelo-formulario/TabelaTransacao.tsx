@@ -1,5 +1,5 @@
 import TransactionCore from "../../core/TransactionCore"
-import { IconeEdicao, IconeLixo } from "./Icone"
+import { IconeEdicao } from "./Icone"
 
 
 interface TabelaProps {
@@ -48,11 +48,8 @@ export default function TabelaTransacao(props: TabelaProps) {
     function renderizarAcoes(cliente: TransactionCore) {
         return (
             <td >
-                <button onClick={() => props.clienteSelecionado?.(cliente)}>
+                <button className="table-icon" onClick={() => props.clienteSelecionado?.(cliente)}>
                     {IconeEdicao}
-                </button>
-                <button onClick={() => props.clienteExcluido?.(cliente)}>
-                    {IconeLixo}
                 </button>
             </td>
         )

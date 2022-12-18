@@ -1,8 +1,9 @@
 import User from "../../core/User"
-import { IconeEdicao, IconeLixo } from "./Icone"
+import { IconeEdicao } from "./Icone"
 
 interface TabelaProps {
     clientes: User[]
+    clienteAlterado?: User[] //teste patch
     clienteSelecionado?: (cliente: User) => void
     clienteExcluido?: (cliente: User) => void
 }
@@ -12,10 +13,10 @@ export default function Tabela(props: TabelaProps) {
     function renderizarCabecalho() {
         return (
             <tr>
-                <th className="table-th">ID</th>
-                <th className="table-th">Legal Name</th>
-                <th className="table-th">Email Address</th>
-                <th className="table-th">Actions</th>
+                <th className="table-tr">ID</th>
+                <th className="table-tr">Legal Name</th>
+                <th className="table-tr">Email Address</th>
+                <th className="table-tr">Actions</th>
             </tr>
         )
     }
@@ -25,7 +26,7 @@ export default function Tabela(props: TabelaProps) {
             return (
                 <tr key={cliente.id}>
                     <td className="table-th">{cliente.id}</td>
-                    <td className="table-th">{cliente.nome}</td>
+                    <td className="table-th">{cliente.name}</td>
                     <td className="table-th">{cliente.email}</td>
                     {renderizarAcoes(cliente)}
                 </tr>
@@ -38,9 +39,6 @@ export default function Tabela(props: TabelaProps) {
             <td>
                 <button className="table-icon" onClick={() => props.clienteSelecionado?.(cliente)}>
                     {IconeEdicao}
-                </button>
-                <button className="table-icon" onClick={() => props.clienteExcluido?.(cliente)}>
-                    {IconeLixo}
                 </button>
             </td>
         )
