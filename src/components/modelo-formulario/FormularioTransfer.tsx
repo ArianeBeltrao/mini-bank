@@ -1,46 +1,35 @@
 import { useState } from "react";
+import TransactionCore from "../../core/TransactionCore"
 import Entrada from "./Entrada";
 import Botao from "./Botao";
-import TransactionCore from "../../core/TransactionCore"
+
 
 interface FormularioProps {
-    cliente: TransactionCore
-    clienteMudou?: (cliente: TransactionCore) => void
-    cancelado?: () => void
+    transaction: TransactionCore
+    createTransfer?: (transaction: TransactionCore) => void
+    cancel?: () => void
 }
 export default function Formulario(props:FormularioProps) {
-    const id = props.cliente?.id
-    const userId = props.cliente?.userId
-    const bank = props.cliente?.userId
+    const userId = props.transaction?.userId
+    const bankAccountId = props.transaction?.bankAccountId
     
-    const [type, setType] = useState(props.cliente?.type ?? '')
-    const [value, setValue] = useState(props.cliente?.value ?? '')
-    const [date, setDate] = useState(props.cliente?.date ?? '')
-    const [number, setNumber] = useState(props.cliente?.numberAccount ?? '')
+    const [value, setValue] = useState(props.transaction?.value ?? 0)
+    const [date, setDate] = useState(props.transaction?.date ?? '')
+
     return (
         <div>
-            {id ? (
-                <Entrada 
-                somenteLeitura //o usuario nao muda o id
-                texto='Id' 
-                valor={id}
-                />
-            ) : false}
-
-            {userId ? (
-                <Entrada 
+            <Entrada 
                 somenteLeitura //o usuario nao muda o id
                 texto='User Id' 
                 valor={userId}
-                />
-            ) : false}
-
-            <Entrada 
-                texto="Type" 
-                valor={type}
-                valorMudou={setType}
             />
 
+            <Entrada 
+                somenteLeitura //o usuario nao muda o id
+                texto='Bank Account Id' 
+                valor={bankAccountId}
+            />
+            
             <Entrada 
                 texto="Value" 
                 valor={value}
@@ -52,25 +41,17 @@ export default function Formulario(props:FormularioProps) {
                 valor={date}
                 valorMudou={setDate}
             />
-
-            <Entrada 
-                texto="Number Account" 
-                valor={number}
-                valorMudou={setNumber}
-            />
             
             <div className="formulario-botao-linha">
                 <Botao 
-                    onClick={() => props.clienteMudou?.(new TransactionCore(id, userId, bankAccountId, type, value, date, numberAccount ))}>
-                    {id ? 'Alterar' : 'Create transfer'}
+                    onClick={() => props.clienteMudou?.(new TransactionCore(userId, bankAccountId, value, date ))}>
+                    Create transfer
                 </Botao>
                 
                 <Botao onClick={props.cancelado} >
                     Cancel
                 </Botao>
             </div>
-            
-            
             
         </div>
     )

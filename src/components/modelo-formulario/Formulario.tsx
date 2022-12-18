@@ -1,7 +1,8 @@
 import { useState } from "react";
+import User from "../../core/User"
 import Entrada from "./Entrada";
 import Botao from "./Botao";
-import User from "../../core/User"
+
 
 interface FormularioProps {
     cliente: User

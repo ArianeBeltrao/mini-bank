@@ -7,15 +7,13 @@ import Tabela from "../components/modelo-formulario/Tabela"
 import Formulario from "../components/modelo-formulario/Formulario"
 import User from "../core/User"
 
-
-
 interface LayoutProps {
     titulo: string
     children: any
 }
 export default function Layout(props: LayoutProps) {
   
-  const URL = 'http://localhost:3000/users/'
+  const URL = 'http://localhost:3000/users'
 
   const [user, setUser] = useState<User>(User.vazio())//Cliente selecionado
   const [usersArray, setUsersArray] = useState<User[]>([])
@@ -23,7 +21,7 @@ export default function Layout(props: LayoutProps) {
   const [visible, setVisible] = useState<'tabela' | 'form'>('tabela') //dois estados, começando pela tabela
 
   async function getUsers() {
-    let response = await axios.get(URL, {
+    await axios.get(URL, {
       headers: {
         'Access-Control-Allow-Origin': '*',
       }
@@ -48,7 +46,7 @@ export default function Layout(props: LayoutProps) {
   function addUser(user: User) {
     if (user?.id) {
       let patchJson = { name: user.name, email: user.email }
-      let responsePatch = axios.patch(`${URL}/4`, 
+      let responsePatch = axios.patch(`${URL}/${user?.id}`, 
         patchJson ,
         {
           headers: {
@@ -57,6 +55,8 @@ export default function Layout(props: LayoutProps) {
         }
       ).then((resp) => { setUpdate(resp.data) })
 
+      setVisible('tabela')
+      window.location.reload();
       console.log(responsePatch)
     } else {
       let userJson = { name: user.name, email: user.email }

@@ -14,7 +14,7 @@ export default function Account(props: AccountProps) {
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela') //dois estados, começando pela tabela
 
   const transacao = [
-    new TransactionCore('1', '1.02', '10.000', 123, 223, "03/03/2022", 50256)
+    new TransactionCore(123, 45000, 12, '12/03/2020')
   ]
 
   function TransactionCoreSelecionado(cliente: TransactionCore) {

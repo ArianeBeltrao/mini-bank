@@ -12,16 +12,13 @@ export default function TabelaTransacao(props: TabelaProps) {
 
     function renderizarCabecalho() {
         return (
-            <tr>
-                <th className="table-th">ID</th>
+            <tr> {/*bank account table*/}
+                <th className="table-th">Id</th>
                 <th className="table-th">User Id</th>
-                <th className="table-th">Bank Account Id</th>
+                <th className="table-th">Company Id</th>
+                <th className="table-th">baasId</th>
                 <th className="table-th">Number Account</th>
-                <th className="table-th">Type</th>
                 <th className="table-th">Value</th>
-
-                <th className="table-th">Date</th>
-                
 
                 <th className="table-th">Actions</th>
             </tr>

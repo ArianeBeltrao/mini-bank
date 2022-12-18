@@ -1,28 +1,18 @@
 export default class TransactionCore {
-    #id: string
-    #userId: string 
-    #bankAccountId: string
-    #type: number
+    #userId: number 
+    #bankAccountId: number
     #value: number
-    #date: string
-    #numberAccount: number
+    #createDate: string
     
-    constructor(id: string, userId: string, bankAccountId: string, type: number, value: number, date: string, numberAccount: number){ 
-        this.#id = id
+    constructor(userId: number, bankAccountId: number, value: number, date: string){ 
         this.#userId = userId
         this.#bankAccountId = bankAccountId
-        this.#type = type
         this.#value = value
-        this.#date = date
-        this.#numberAccount = numberAccount
+        this.#createDate = date
     }
 
     static vazio() {//metodo estatico com User vazio pra nao ter que estanciar 
-        return new TransactionCore('', '', '', 0, 0, "01/01/2020", 1234)
-    }
-
-    get id() {
-        return this.#id
+        return new TransactionCore(0, 123, 0,'00/00/0000')
     }
 
     get userId() {
@@ -33,19 +23,12 @@ export default class TransactionCore {
         return this.#bankAccountId
     }
 
-    get type() {
-        return this.#type
-    }
-
     get value() {
         return this.#value
     }
 
     get date() {
-        return this.#date
+        return this.#createDate
     }
 
-    get numberAccount() {
-        return this.#numberAccount
-    }
 }
