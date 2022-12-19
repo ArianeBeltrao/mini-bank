@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { useState } from "react";
+import { useState } from 'react';
 
 import Modelo from './modelo-formulario/Modelo';
-import FormularioTransfer from "./modelo-formulario/FormularioTransfer";
-import TransactionCore from "../core/TransactionCore";
+import FormularioTransfer from './modelo-formulario/FormularioTransfer';
+import TransactionCore from '../core/TransactionCore';
 
 
 interface TransferProps {
@@ -12,7 +12,7 @@ interface TransferProps {
 }
 export default function Transfer(props: TransferProps) {
 
-  const URL = 'http://localhost:3000/transaction/'
+  const baseURL = 'http://localhost:3000/transaction'
 
   const [transaction, setTransaction] = useState<TransactionCore>(TransactionCore.vazio())//TransactionCore selecionado
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela') //dois estados, começando pela tabela
@@ -20,23 +20,22 @@ export default function Transfer(props: TransferProps) {
 
 
   function salvarTransactionCore(transaction: TransactionCore) {
-    let userJson = { userId: transaction.userId, bankAccountId: transaction.bankAccountId, value: transaction.value, createDate: transaction.date  }
-      let response = axios.post(URL, 
-        userJson,
+    let transactionJson = { userId: transaction.userId, bankAccountId: transaction.bankAccountId, value: transaction.value, createDate: transaction.date }
+    let response = axios.post(baseURL, 
+        transactionJson,
         {
           headers: {
             'Access-Control-Allow-Origin': '*',
           }
         }
       )
-      console.log(response);
-      window.location.reload();
-      
-
-    console.log(transaction)
+  
+    window.location.reload();
+    console.log(response)
     setVisivel('tabela')
     setTransaction(transaction)
   }
+
 
 
   return (

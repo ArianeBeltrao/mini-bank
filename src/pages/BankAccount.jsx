@@ -1,5 +1,5 @@
-import Account from "../components/Account"
-import { MenuLateral } from "../components/menu-lateral/MenuLateral"
+import Account from '../components/Account'
+import { MenuLateral } from '../components/menu-lateral/MenuLateral'
 import React from 'react'
 
 

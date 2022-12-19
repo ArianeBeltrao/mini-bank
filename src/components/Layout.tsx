@@ -1,11 +1,12 @@
 import axios from 'axios'; 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import Modelo from '../components/modelo-formulario/Modelo'
-import Botao from "../components/modelo-formulario/Botao"
-import Tabela from "../components/modelo-formulario/Tabela"
-import Formulario from "../components/modelo-formulario/Formulario"
-import User from "../core/User"
+import Modelo from '../components/modelo-formulario/Modelo';
+import Botao from '../components/modelo-formulario/Botao';
+
+import Tabela from '../components/modelo-formulario/Tabela';
+import Formulario from '../components/modelo-formulario/Formulario';
+import User from '../core/User';
 
 interface LayoutProps {
     titulo: string
@@ -27,13 +28,13 @@ export default function Layout(props: LayoutProps) {
       }
     }).then(resp => {
       let usersResp = resp.data
-      let help: User[] = []
+      let userlist: User[] = []
       for (let i = 0; i < usersResp.length; i++) {
         let currentUser = usersResp[i]
         let newUser = new User(currentUser.userid, currentUser.name, currentUser.email)
-        help.push(newUser)
+        userlist.push(newUser)
       }
-      setUsersArray(help)
+      setUsersArray(userlist)
     }
     )
   }
@@ -41,7 +42,6 @@ export default function Layout(props: LayoutProps) {
   useEffect(() => {
     getUsers()
   }, []);
-
 
   function addUser(user: User) {
     if (user?.id) {
@@ -82,7 +82,6 @@ export default function Layout(props: LayoutProps) {
   function editUser(user:User) {  
     setUser(user)
     setVisible('form')
-    console.log(user.name)
   }
 
   return (
@@ -94,9 +93,10 @@ export default function Layout(props: LayoutProps) {
                   <hr/>
                   <Botao className="botao" onClick={createNewUser} >Create new user</Botao>
                 </div>
-                <Tabela clientes={usersArray}
+                <Tabela 
+                  clientes={usersArray}
                   clienteSelecionado={editUser}
-                  clienteAlterado={update} //teste patch
+                  clienteAlterado={update} 
                 />
               </>
             ) : (

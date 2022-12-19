@@ -1,11 +1,11 @@
-import TransactionCore from "../../core/TransactionCore"
+import AccountCore from "../../core/AccountCore"
 import { IconeEdicao } from "./Icone"
 
 
 interface TabelaProps {
-    clientes: TransactionCore[]
-    clienteSelecionado?: (cliente: TransactionCore) => void
-    clienteExcluido?: (cliente: TransactionCore) => void
+    clientes: AccountCore[]
+    clienteSelecionado?: (cliente: AccountCore) => void
+    clienteExcluido?: (cliente: AccountCore) => void
 }
 
 export default function TabelaTransacao(props: TabelaProps) {
@@ -18,7 +18,7 @@ export default function TabelaTransacao(props: TabelaProps) {
                 <th className="table-th">Company Id</th>
                 <th className="table-th">baasId</th>
                 <th className="table-th">Number Account</th>
-                <th className="table-th">Value</th>
+                
 
                 <th className="table-th">Actions</th>
             </tr>
@@ -31,18 +31,16 @@ export default function TabelaTransacao(props: TabelaProps) {
                 <tr key={cliente.id}>
                     <td className="table-th">{cliente.id}</td>
                     <td className="table-th">{cliente.userId}</td>
-                    <td className="table-th">{cliente.bankAccountId}</td>
+                    <td className="table-th">{cliente.companyId}</td>
+                    <td className="table-th">{cliente.bassId}</td>
                     <td className="table-th">{cliente.numberAccount}</td>
-                    <td className="table-th">{cliente.type}</td>
-                    <td className="table-th">{cliente.value}</td>
-                    <td className="table-th">{cliente.date}</td>
                     {renderizarAcoes(cliente)}
                 </tr>
             )
         })
     }
 
-    function renderizarAcoes(cliente: TransactionCore) {
+    function renderizarAcoes(cliente: AccountCore) {
         return (
             <td >
                 <button className="table-icon" onClick={() => props.clienteSelecionado?.(cliente)}>

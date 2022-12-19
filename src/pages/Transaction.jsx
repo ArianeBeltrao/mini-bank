@@ -1,5 +1,5 @@
-import Transfer from "../components/Transfer"
-import { MenuLateral } from "../components/menu-lateral/MenuLateral"
+import Transfer from '../components/Transfer'
+import { MenuLateral } from '../components/menu-lateral/MenuLateral'
 import React from 'react'
 
 

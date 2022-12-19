@@ -1,19 +1,19 @@
 import { useState } from "react";
-import User from "../../core/User";
+import CompanyCore from "../../core/CompanyCore";
 
 import Entrada from "./Entrada";
 import Botao from "./Botao";
 
 
-interface FormularioProps {
-    cliente: User
-    clienteMudou?: (cliente: User) => void //OU ALTERA OU CRIA UM NOVO 
-    cancelado?: () => void
+interface FormularioCompanyProps {
+    company: CompanyCore
+    companyAltered?: (company: CompanyCore) => void //OU ALTERA OU CRIA UM NOVO 
+    cancel?: () => void
 }
-export default function Formulario(props:FormularioProps) {
-    const id = props.cliente?.id
-    const [name, setName] = useState(props.cliente?.name ?? '')
-    const [email, setEmail] = useState(props.cliente?.email ?? '')
+export default function FormularioCompany(props:FormularioCompanyProps) {
+    const id = props.company?.id
+    const [name, setName] = useState(props.company?.legalName ?? '')
+    const [email, setEmail] = useState(props.company?.emailAddress ?? '')
 
     return (
         <div>
@@ -26,24 +26,24 @@ export default function Formulario(props:FormularioProps) {
             ) : false}
 
             <Entrada 
-                texto="Name"
+                texto="Legal Name"
                 valor={name}
                 valorMudou={setName}
             />
 
             <Entrada 
-                texto="Email" 
+                texto="Email Address" 
                 valor={email}
                 valorMudou={setEmail}
             />
             
             <div className="formulario-botao-linha">
                 <Botao 
-                    onClick={() => props.clienteMudou?.(new User(id, name, email))}>
+                    onClick={() => props.companyAltered?.(new CompanyCore(id, name, email))}>
                     {id ? 'Alterar' : 'Salvar'}
                 </Botao>
                 
-                <Botao onClick={props.cancelado} >
+                <Botao onClick={props.cancel} >
                     Cancelar
                 </Botao>
             </div>

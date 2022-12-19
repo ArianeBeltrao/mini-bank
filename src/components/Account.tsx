@@ -1,8 +1,8 @@
-import Modelo from './modelo-formulario/Modelo'
-import Botao from "./modelo-formulario/Botao"
-import TabelaTransacao from "./modelo-formulario/TabelaTransacao"
-import TransactionCore from "../core/TransactionCore"
-import { useState } from "react"
+import Modelo from './modelo-formulario/Modelo';
+import Botao from './modelo-formulario/Botao'
+import TabelaAccount from './modelo-formulario/TabelaAccount'
+import AccountCore from '../core/AccountCore'
+import { useState } from 'react'
 
 interface AccountProps {
     titulo: string
@@ -10,25 +10,25 @@ interface AccountProps {
 }
 export default function Account(props: AccountProps) {
 
-  const [cliente, setCliente] = useState<TransactionCore>(TransactionCore.vazio())//TransactionCore selecionado
+  const [cliente, setCliente] = useState<AccountCore>(AccountCore.vazio())//AccountCore selecionado
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela') //dois estados, começando pela tabela
 
   const transacao = [
-    new TransactionCore(123, 45000, 12, '12/03/2020')
+    new AccountCore(123, 45000, 12, '234.45', 2000)
   ]
 
-  function TransactionCoreSelecionado(cliente: TransactionCore) {
+  function TransactionCoreSelecionado(cliente: AccountCore) {
     setCliente(cliente)
     setVisivel('form')
   }
 
-  /*function salvarTransactionCore(cliente: TransactionCore) {
+  /*function salvarTransactionCore(cliente: AccountCore) {
     console.log(cliente)
     setVisivel('tabela')
   }*/
 
   function novoTransactionCore() {
-    setCliente(TransactionCore.vazio())
+    setCliente(AccountCore.vazio())
     setVisivel('form')
   }
 
@@ -40,7 +40,7 @@ export default function Account(props: AccountProps) {
                     <hr/>
                     <Botao className="botao" onClick={novoTransactionCore} >Create Bank Account</Botao>
                   </div>
-                  <TabelaTransacao clientes={transacao}
+                  <TabelaAccount clientes={transacao}
                     clienteSelecionado={TransactionCoreSelecionado}
                   />
                 </>

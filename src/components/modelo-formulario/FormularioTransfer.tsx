@@ -44,11 +44,11 @@ export default function Formulario(props:FormularioProps) {
             
             <div className="formulario-botao-linha">
                 <Botao 
-                    onClick={() => props.clienteMudou?.(new TransactionCore(userId, bankAccountId, value, date ))}>
+                    onClick={() => props.createTransfer?.(new TransactionCore(userId, bankAccountId, value, date ))}>
                     Create transfer
                 </Botao>
                 
-                <Botao onClick={props.cancelado} >
+                <Botao onClick={props.cancel} >
                     Cancel
                 </Botao>
             </div>

@@ -14,8 +14,8 @@ export default function Tabela(props: TabelaProps) {
         return (
             <tr>
                 <th className="table-tr">ID</th>
-                <th className="table-tr">Legal Name</th>
-                <th className="table-tr">Email Address</th>
+                <th className="table-tr">Name</th>
+                <th className="table-tr">Email</th>
                 <th className="table-tr">Actions</th>
             </tr>
         )

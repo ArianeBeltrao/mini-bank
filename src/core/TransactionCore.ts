@@ -12,7 +12,7 @@ export default class TransactionCore {
     }
 
     static vazio() {//metodo estatico com User vazio pra nao ter que estanciar 
-        return new TransactionCore(0, 123, 0,'00/00/0000')
+        return new TransactionCore(0, 0,0 ,'')
     }
 
     get userId() {
